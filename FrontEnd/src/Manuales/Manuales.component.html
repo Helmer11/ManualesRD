@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+        <div class="col-8">
+                <div id="logo" class="mb-3">
+                </div>
+                <form [formGroup]="ListaForm" >
+                <div class="col-9">
+                      <div class="Form-group">
+                        <input type="search" class="form-control" name="datos" placeholder="Ejemplo: Java, PHP"formControlName="Manual_Titulo">
+                        <button class="btn btn-success col-4 mt-3" onclick="" type="button" (click)="BuscarManuales()" id="button-addon2">Buscar</button>
+                        <!-- <button class="btn btn-success col-4 mt-3" onclick="" type="button" (click)="Limpiar()" id="button-addon2">Limpiar</button> -->
+                      </div>
+                </div>
+                </form>
+          </div>
+    </div>
+
+    <div class="text-center mt-lg-5">
+      <div class="spinner-border text-primary" role="status" *ngIf="loading">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+
+
+
+    <div class="card w-75 col-8 mt-5" *ngFor="let m of ListaManual">
+          <div class="card-body" >
+                  <h5 class="card-title">{{ m?.Manual_Titulo }}</h5>
+                  <p class="card-text">{{ m?.Manual_Descripcion }}</p>
+                  <span class=""><strong> Publicada:</strong> {{ m?.Manual_Fecha_publicacion | date }}</span>
+                  <span class="w-50 p-3"><strong>Paginas:</strong>  {{ m?.Manual_Numero_Pagina}}</span>
+                  <span class="w-50 p3"><strong>ISBN: {{ m?.Manual_ISBN }}</strong></span>
+                  <span class="w-50 p-3"><strong>Autor:</strong> {{ m?.Autor }}</span>
+                  <span class="w-50 p3"><strong>Pais: </strong> {{ m?.Pais_Nombre }} </span>
+          </div>
+          <a href="#" class="link-primary w-25 p-3">leer mas</a>
+    </div>
+</div>
